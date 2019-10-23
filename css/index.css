@@ -232,6 +232,8 @@ img:not([src]) {
   color: #90a4ae;
   font-size: 14px;
   line-height: 20px;
+  counter-reset: line;
+  white-space: pre-wrap;
 }
 figure.highlight {
   position: relative;
@@ -282,11 +284,21 @@ blockquote {
   background: rgba(128,203,196,0.251);
   color: #90a4ae;
 }
+.article-container .highlight .line:before {
+  display: inline-block;
+  padding: 0 0.3rem 0 0;
+  min-width: 1.6rem;
+  color: #cfd8dc;
+  content: counter(line);
+  counter-increment: line;
+  text-align: left;
+}
 .article-container .highlight table {
   position: relative;
   margin: 0;
   width: auto;
   border: none;
+  display: none;
 }
 .article-container .highlight table:after {
   position: absolute;
@@ -990,7 +1002,7 @@ blockquote {
 }
 @media screen and (min-width: 900px) {
   #aside_content .card_widget {
-    margin-left: 15px;
+    margin-right: 15px;
   }
 }
 .category-content ol,
@@ -3744,6 +3756,23 @@ img:hover {
 .flink:hover {
   -webkit-box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15);
   box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15);
+}
+@media screen and (min-width: 900px) {
+  #recent-posts,
+  #page,
+  .category-content,
+  #archive,
+  .tag-cloud,
+  .flink,
+  #tag,
+  #category {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -o-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+  }
 }
 @media screen and (max-width: 900px) {
   #page,
