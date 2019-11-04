@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>30分钟入门正则表达式 | LetonLIU的博客</title><meta name="description" content="30分钟入门正则表达式"><meta name="keywords" content><meta name="author" content="WenJingliu"><meta name="copyright" content="WenJingliu"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="http://yoursite.com/2019/10/25/30分钟入门正则表达式/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="30分钟入门正则表达式"><meta name="twitter:description" content="30分钟入门正则表达式"><meta name="twitter:image" content="http://pzv7d9ksy.bkt.clouddn.com/blog/20191028/9pj4xGuoxERa.jpg?imageslim"><meta property="og:type" content="article"><meta property="og:title" content="30分钟入门正则表达式"><meta property="og:url" content="http://yoursite.com/2019/10/25/30分钟入门正则表达式/"><meta property="og:site_name" content="LetonLIU的博客"><meta property="og:description" content="30分钟入门正则表达式"><meta property="og:image" content="http://pzv7d9ksy.bkt.clouddn.com/blog/20191028/9pj4xGuoxERa.jpg?imageslim"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="next" title="Linux常用命令" href="http://yoursite.com/2019/10/25/Linux常用命令/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>30分钟入门正则表达式 | LetonLIU的博客</title><meta name="description" content="30分钟入门正则表达式"><meta name="keywords" content><meta name="author" content="WenJingliu"><meta name="copyright" content="WenJingliu"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="http://yoursite.com/2019/10/25/30分钟入门正则表达式/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="30分钟入门正则表达式"><meta name="twitter:description" content="30分钟入门正则表达式"><meta name="twitter:image" content="http://pzv7d9ksy.bkt.clouddn.com/blog/20191028/9pj4xGuoxERa.jpg?imageslim"><meta property="og:type" content="article"><meta property="og:title" content="30分钟入门正则表达式"><meta property="og:url" content="http://yoursite.com/2019/10/25/30分钟入门正则表达式/"><meta property="og:site_name" content="LetonLIU的博客"><meta property="og:description" content="30分钟入门正则表达式"><meta property="og:image" content="http://pzv7d9ksy.bkt.clouddn.com/blog/20191028/9pj4xGuoxERa.jpg?imageslim"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="CPU利用率和内存利用率压力测试" href="http://yoursite.com/2019/10/31/CPU利用率和内存利用率压力测试/"><link rel="next" title="Linux常用命令" href="http://yoursite.com/2019/10/25/Linux常用命令/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
@@ -20,85 +20,407 @@
   copyright: undefined,
   copy_copyright_js: false
   
-}</script></head><body><canvas class="fireworks"></canvas><div id="header"> <div id="page-header"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">LetonLIU的博客</a></span><i class="fa fa-bars fa-fw toggle-menu pull-right close" aria-hidden="true"></i><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-photo"></i><span> Gallery</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="http://pzv7d9ksy.bkt.clouddn.com/blog/20191024/K9b8cReo3z9m.jpg?imageslim" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">4</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">1</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-photo"></i><span> Gallery</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://pzv7d9ksy.bkt.clouddn.com/blog/20191028/9pj4xGuoxERa.jpg?imageslim)"><div id="post-info"><div id="post-title"><div class="posttitle">30分钟入门正则表达式</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-10-25<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-10-28</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">3.3k</span><span class="post-meta__separator">|</span><span>阅读时长: 10 分钟</span><span class="post-meta__separator">|</span><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><p><em>版权声明：博客分析转载于<a href="https://deerchao.cn/tutorials/regex/regex.htm#top" target="_blank" rel="noopener">deechao</a>的博客，本文致力于更加清晰的表达</em></p>
-<ol>
-<li><p><strong><em>本文目标</em></strong></p>
-<p>30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它</p>
-<p>​</p>
-</li>
-<li><p><strong><em>如何使用本教程(需仔细阅读)</em></strong></p>
-<p>​    别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为，没接触过正则表达式的人在看完这篇教程后，能把提到过的语法记住80%以上的可能性为零。这里只是让你明白基本的原理，以后你还需要多练习，多使用，才能熟练掌握正则表达式。        </p>
+}</script></head><body><canvas class="fireworks"></canvas><div id="header"> <div id="page-header"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">LetonLIU的博客</a></span><i class="fa fa-bars fa-fw toggle-menu pull-right close" aria-hidden="true"></i><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-photo"></i><span> Gallery</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="http://pzv7d9ksy.bkt.clouddn.com/blog/20191024/K9b8cReo3z9m.jpg?imageslim" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">11</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">1</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-photo"></i><span> Gallery</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#本文目标"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">本文目标</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#如何使用本教程-需仔细阅读"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">如何使用本教程(需仔细阅读)</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#正则表达式到底是什么东西？"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">正则表达式到底是什么东西？</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#入门"><span class="toc_mobile_items-number">4.</span> <span class="toc_mobile_items-text">入门</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#测试正则表达式"><span class="toc_mobile_items-number">5.</span> <span class="toc_mobile_items-text">测试正则表达式</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#元字符"><span class="toc_mobile_items-number">6.</span> <span class="toc_mobile_items-text">元字符</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#字符转义"><span class="toc_mobile_items-number">7.</span> <span class="toc_mobile_items-text">字符转义</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#重复"><span class="toc_mobile_items-number">8.</span> <span class="toc_mobile_items-text">重复</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#字符类"><span class="toc_mobile_items-number">9.</span> <span class="toc_mobile_items-text">字符类</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#分支条件"><span class="toc_mobile_items-number">10.</span> <span class="toc_mobile_items-text">分支条件</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#分组"><span class="toc_mobile_items-number">11.</span> <span class="toc_mobile_items-text">分组</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#反义"><span class="toc_mobile_items-number">12.</span> <span class="toc_mobile_items-text">反义</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#反向引用"><span class="toc_mobile_items-number">13.</span> <span class="toc_mobile_items-text">反向引用</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#负向零宽断言"><span class="toc_mobile_items-number">14.</span> <span class="toc_mobile_items-text">负向零宽断言</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#注释"><span class="toc_mobile_items-number">15.</span> <span class="toc_mobile_items-text">注释</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#懒惰与贪婪"><span class="toc_mobile_items-number">16.</span> <span class="toc_mobile_items-text">懒惰与贪婪</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#处理选项"><span class="toc_mobile_items-number">17.</span> <span class="toc_mobile_items-text">处理选项</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#尚未讨论的语法"><span class="toc_mobile_items-number">18.</span> <span class="toc_mobile_items-text">尚未讨论的语法</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#写在最后："><span class="toc_mobile_items-number">19.</span> <span class="toc_mobile_items-text">写在最后：</span></a></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#本文目标"><span class="toc-number">1.</span> <span class="toc-text">本文目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何使用本教程-需仔细阅读"><span class="toc-number">2.</span> <span class="toc-text">如何使用本教程(需仔细阅读)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正则表达式到底是什么东西？"><span class="toc-number">3.</span> <span class="toc-text">正则表达式到底是什么东西？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#入门"><span class="toc-number">4.</span> <span class="toc-text">入门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试正则表达式"><span class="toc-number">5.</span> <span class="toc-text">测试正则表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元字符"><span class="toc-number">6.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符转义"><span class="toc-number">7.</span> <span class="toc-text">字符转义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重复"><span class="toc-number">8.</span> <span class="toc-text">重复</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符类"><span class="toc-number">9.</span> <span class="toc-text">字符类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分支条件"><span class="toc-number">10.</span> <span class="toc-text">分支条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分组"><span class="toc-number">11.</span> <span class="toc-text">分组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反义"><span class="toc-number">12.</span> <span class="toc-text">反义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反向引用"><span class="toc-number">13.</span> <span class="toc-text">反向引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#负向零宽断言"><span class="toc-number">14.</span> <span class="toc-text">负向零宽断言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注释"><span class="toc-number">15.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#懒惰与贪婪"><span class="toc-number">16.</span> <span class="toc-text">懒惰与贪婪</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#处理选项"><span class="toc-number">17.</span> <span class="toc-text">处理选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#尚未讨论的语法"><span class="toc-number">18.</span> <span class="toc-text">尚未讨论的语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写在最后："><span class="toc-number">19.</span> <span class="toc-text">写在最后：</span></a></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://pzv7d9ksy.bkt.clouddn.com/blog/20191028/9pj4xGuoxERa.jpg?imageslim)"><div id="post-info"><div id="post-title"><div class="posttitle">30分钟入门正则表达式</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-10-25<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-10-28</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">6.1k</span><span class="post-meta__separator">|</span><span>阅读时长: 19 分钟</span><span class="post-meta__separator">|</span><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><p><em>版权声明：博客分析转载于<a href="https://deerchao.cn/tutorials/regex/regex.htm#top" target="_blank" rel="noopener">deechao</a>的博客，本文致力于更加清晰的表达</em></p>
+<h4 id="本文目标"><a href="#本文目标" class="headerlink" title="本文目标"></a><em>本文目标</em></h4><p>30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它</p>
+<h4 id="如何使用本教程-需仔细阅读"><a href="#如何使用本教程-需仔细阅读" class="headerlink" title="如何使用本教程(需仔细阅读)"></a><em>如何使用本教程(需仔细阅读)</em></h4><p>​    别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为，没接触过正则表达式的人在看完这篇教程后，能把提到过的语法记住80%以上的可能性为零。这里只是让你明白基本的原理，以后你还需要多练习，多使用，才能熟练掌握正则表达式。        </p>
 <p>​        除了作为入门教程之外，本文还试图成为可以在日常工作中使用的正则表达式语法参考手册。就作者本人的经历来说，这个目标还是完成得不错的——你看，我自己也没能把所有的东西记下来，不是吗？</p>
-<p>​    格式约定：<strong>专业术语</strong>，<code>元字符/语法格式</code>，==正则表达式==，正则表达式的一部分(用于分析)，<u>对正则表达式或其中一部分的说明</u></p>
-<p>​</p>
-</li>
-<li><p><strong><em>正则表达式到底是什么东西？</em></strong></p>
-<p>​        在编写处理字符串的程序或网页时，经常会有查找符合某些复杂规则的字符串的需要。<strong>正则表达式</strong>就是用于描述这些规则的工具。换句话说，正则表达式就是记录文本规则的代码。</p>
-<p>​        很可能你使用过Windows/Dos下用于文件查找的<strong>通配符(wildcard)</strong>，也就是<code>*</code>和<code>?</code>。如果你想查找某个目录下的所有的Word文档的话，你会搜索==<em>.doc==。在这里，`</em>`会被解释成任意的字符串。和通配符类似，正则表达式也是用来进行文本匹配的工具，只不过比起通配符，它能更精确地描述你的需求——当然，代价就是更复杂——比如你可以编写一个正则表达式，用来查找<u>所有以0开头，后面跟着2-3个数字，然后是一个连字号“-”，最后是7或8位数字的字符串</u>(像<u>010-12345678</u>或<u>0376-7654321</u>)。</p>
-<p>​</p>
-</li>
-<li><p><strong><em>入门</em></strong></p>
-<p>学习正则表达式的最好方法是从例子开始，理解例子之后再自己对例子进行修改，实验。下面给出了不少简单的例子，并对它们作了详细的说明。</p>
-<p>​    假设你在一篇英文小说里查找<u>hi</u>，你可以使用正则表达式==hi==。这几乎是最简单的正则表达式了，它可以精确匹配这样的字符串：<u>由两个字符组成，前一个字符是h,后一个是i</u>。通常，处理正则表达式的工具会提供一个忽略大小写的选项，如果选中了这个选项，它可以匹配hi,HI,Hi,hI这四种情况中的任意一种。</p>
-<p>​        不幸的是，很多单词里包含hi这两个连续的字符，比如him,history,high等等。用==hi==来查找的话，这里边的hi也会被找出来。如果要<u>精确地查找hi这个单词</u>的话，我们应该使用==\bhi\b==。</p>
-<p>​        \b是正则表达式规定的一个特殊代码（好吧，某些人叫它<strong>元字符，metacharacter</strong>），代表着单词的开头或结尾，也就是单词的分界处。虽然通常英文的单词是由空格，标点符号或者换行来分隔的，但是\b并不匹配这些单词分隔字符中的任何一个，它<strong>只匹配一个位置</strong>。假如你要找的是<u>hi后面不远处跟着一个Lucy</u>，你应该用==\bhi\b.*\bLucy\b==。</p>
-<p>​        这里，. 是另一个元字符，匹配除了换行符以外的任意字符。<em>同样是元字符，不过它代表的不是字符，也不是位置，而是数量——它指定</em>前边的内容可以连续重复使用任意次以使整个表达式得到匹配。因此，==. <em>==连在一起就意味着任意数量的不包含换行的字符。现在==\bhi\b.</em>\bLucy\b==的意思就很明显了：先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。</p>
+<p>​    格式约定：<strong>专业术语</strong>，<code>元字符/语法格式/正则表达式</code>，<em>正则表达式的一部分</em>(用于分析)，<u>对正则表达式或其中一部分的说明</u></p>
+<h4 id="正则表达式到底是什么东西？"><a href="#正则表达式到底是什么东西？" class="headerlink" title="正则表达式到底是什么东西？"></a><strong><em>正则表达式到底是什么东西？</em></strong></h4><p>​        在编写处理字符串的程序或网页时，经常会有查找符合某些复杂规则的字符串的需要。<strong>正则表达式</strong>就是用于描述这些规则的工具。换句话说，正则表达式就是记录文本规则的代码。</p>
+<p>​        很可能你使用过Windows/Dos下用于文件查找的<strong>通配符(wildcard)</strong>，也就是<code>*</code>和<code>?</code>。如果你想查找某个目录下的所有的Word文档的话，你会搜索<em><code>.doc</code>。在这里，`</em>`会被解释成任意的字符串。和通配符类似，正则表达式也是用来进行文本匹配的工具，只不过比起通配符，它能更精确地描述你的需求——当然，代价就是更复杂——比如你可以编写一个正则表达式，用来查找<u>所有以0开头，后面跟着2-3个数字，然后是一个连字号“-”，最后是7或8位数字的字符串</u>(像<u>010-12345678</u>或<u>0376-7654321</u>)。</p>
+<h4 id="入门"><a href="#入门" class="headerlink" title="入门"></a><strong><em>入门</em></strong></h4><p>学习正则表达式的最好方法是从例子开始，理解例子之后再自己对例子进行修改，实验。下面给出了不少简单的例子，并对它们作了详细的说明。</p>
+<p>​    假设你在一篇英文小说里查找<u>hi</u>，你可以使用正则表达式<code>hi</code>。这几乎是最简单的正则表达式了，它可以精确匹配这样的字符串：<u>由两个字符组成，前一个字符是h,后一个是i</u>。通常，处理正则表达式的工具会提供一个忽略大小写的选项，如果选中了这个选项，它可以匹配hi,HI,Hi,hI这四种情况中的任意一种。</p>
+<p>​        不幸的是，很多单词里包含hi这两个连续的字符，比如him,history,high等等。用<code>hi</code>来查找的话，这里边的hi也会被找出来。如果要<u>精确地查找hi这个单词</u>的话，我们应该使用<code>\bhi\b</code>。</p>
+<p>​        \b是正则表达式规定的一个特殊代码（好吧，某些人叫它<strong>元字符，metacharacter</strong>），代表着单词的开头或结尾，也就是单词的分界处。虽然通常英文的单词是由空格，标点符号或者换行来分隔的，但是\b并不匹配这些单词分隔字符中的任何一个，它<strong>只匹配一个位置</strong>。假如你要找的是<u>hi后面不远处跟着一个Lucy</u>，你应该用<code>\bhi\b.*\bLucy\b</code>。</p>
+<p>​        这里，. 是另一个元字符，匹配除了换行符以外的任意字符。<em>同样是元字符，不过它代表的不是字符，也不是位置，而是数量——它指定</em>前边的内容可以连续重复使用任意次以使整个表达式得到匹配。因此，<code>. *</code>连在一起就意味着任意数量的不包含换行的字符。现在<code>\bhi\b.*\bLucy\b</code>的意思就很明显了：先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。</p>
 <p>如果同时使用其它元字符，我们就能构造出功能更强大的正则表达式。比如下面这个例子：</p>
-<p>​        ==0\d\d-\d\d\d\d\d\d\d\d==匹配这样的字符串<u>：以0开头，然后是两个数字，然后是一个连字号“-”，最后是8个数字</u>(也就是中国的电话号码。当然，这个例子只能匹配区号为3位的情形)。这里的\d是个新的元字符，<u>匹配一位数字(0，或1，或2，或……)</u>。- 不是元字符，只匹配它本身——连字符(或者减号，或者中横线，或者随你怎么称呼它)。为了避免那么多烦人的重复，我们也可以这样写这个表达式：==0\d{2}-\d{8}==。这里\d后面的{2}({8})的意思是前面\d必须连续重复匹配2次(8次)。</p>
-<p>​</p>
-</li>
-<li><p><strong><em>测试正则表达式</em></strong></p>
-<p> 这里推荐<a href="https://deerchao.cn/tools/regester/" target="_blank" rel="noopener">原作者</a>写的轻量测试软件，正则表达式复杂化后非常头疼，需要经常测试</p>
-<p> ​</p>
-</li>
-<li><p><strong><em>元字符</em></strong></p>
-<p> 现在你已经知道几个很有用的元字符了，如\b, . , * ，还有\d.正则表达式里还有更多的元字符，比如 \s 匹配<u>任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格等</u>。\w<u>匹配字母或数字或下划线或汉字等。</u></p>
-<p> 下面来看看更多的例子：</p>
-<p> ​        ==\ba\w<em>\b==匹配<u>以字母a开头的单词——先是某个单词开始处(\b)，然后是字母a,然后是任意数量的字母或数字(\w</u></em>)，最后是单词结束处(\b)。&lt;/u&gt;</p>
-<p> ​        ==\d+==<u>匹配1个或更多连续的数字。这里的+是和<em>类似的元字符，不同的是</em>匹配重复任意次(可能是0次)，而+则匹配重复1次或更多次</u>。</p>
-<p> ​        ==\b\w{6}\b== <u>匹配刚好6个字符的单词</u></p>
-<p> | 代码 | 说明                         |<br> | —— | —————————————— |<br> | .    | 匹配除换行符以外的任意字符   |<br> | \w   | 匹配字母或数字或下划线或汉字 |<br> | \s   | 匹配任意的空白符             |<br> | \d   | 匹配数字                     |<br> | \b   | 匹配单词的开始或结束         |<br> | ^    | 匹配字符串的开始             |<br> | $    | 匹配字符串的结束             |</p>
-<p> ​    元字符<code>^</code>（和数字6在同一个键位上的符号）和<script type="math/tex">`都匹配一个位置，这和\b有点类似。`^`匹配你要用来查找的字符串的开头，`</script>匹配结尾。这两个代码在验证输入的内容时非常有用，比如一个网站如果要求你填写的QQ号必须为5位到12位数字时，可以使用：==^\d{5,12}$==。</p>
-<p> ​        这里的{5,12}和前面介绍过的{2}是类似的，只不过{2}匹配只能不多不少重复2次，{5,12}则是重复的次数不能少于5次，不能多于12次，否则都不匹配。</p>
-<p> ​        因为使用了<code>^</code>和<code>$</code>，所以输入的整个字符串都要用来和\d{5,12}来匹配，也就是说整个输入必须是5到12个数字，因此如果输入的QQ号能匹配这个正则表达式的话，那就符合要求了。        </p>
-<p> ​        和忽略大小写的选项类似，有些正则表达式处理工具还有一个处理多行的选项。如果选中了这个选项，^和$的意义就变成了匹配行的开始处和结束处。</p>
-<p> ​</p>
-</li>
-<li><p><strong><em>字符转义</em></strong></p>
-<p> ​    如果你想查找元字符本身的话，比如你查找 . ,或者 <em> ,就出现了问题：你没办法指定它们，因为它们会被解释成别的意思。这时你就得使用\来取消这些字符的特殊意义。因此，你应该使用==<code>\.</code>==和==`\</em><code>==。当然，要查找\本身，你也得用==</code>\`==.</p>
-<p> ​        例如：==<code>deerchao\.cn</code>==匹配<u>deerchao.cn</u>，==<code>C:\\Windows</code>==匹配C:<u>\Windows</u>。</p>
-</li>
-<li><p><strong><em>重复</em></strong></p>
-<p> 你已经看过了前面的<code>*</code>,+,{2},{5,12}这几个匹配重复的方式了。下面是正则表达式中所有的限定符(指定数量的代码，例如<code>*</code>,{5,12}等)：</p>
-<p> ​        </p>
-<p> | 代码/语法 | 说明             |<br> | ————- | ———————— |<br> | *         | 重复零次或更多次 |<br> | +         | 重复一次或更多次 |<br> | ?         | 重复零次或一次   |<br> | {n}       | 重复n次          |<br> | {n,}      | 重复n次或更多次  |<br> | {n,m}     | 重复n到m次       |</p>
-<p> ​        下面是一些使用重复的例子：</p>
-<p> ​        ==Windows\d+==匹配<u>Windows后面跟1个或更多数字</u></p>
-<p> ​        ==^\w+==匹配<u>一行的第一个单词</u>(或整个字符串的第一个单词，具体匹配哪个意思得看选项设置)</p>
-<p> ​</p>
-</li>
-<li><p><strong><em>字符类</em></strong></p>
-<p> 要想查找数字，字母或数字，空白是很简单的，因为已经有了对应这些字符集合的元字符，但是如果你想匹配没有预定义元字符的字符集合(比如元音字母a,e,i,o,u),应该怎么办？</p>
-<p> ​        很简单，你只需要在方括号里列出它们就行了，像==[aeiou]==就匹配任何一个英文元音字母，[.?!]匹配标点符号(.或?或!)。</p>
-<p> ​        我们也可以轻松地指定一个字符范围，像[0-9]代表的含意与\d就是完全一致的：一位数字；同理[a-z0-9A-Z_]也完全等同于\w（如果只考虑英文的话）。</p>
-<p> ​        下面是一个更复杂的表达式：==(?0\d{2}[) -]?\d{8}==。这个表达式可以<u>匹配几种格式的电话号码</u>，像<u>(010)88886666</u>，或<u>022-22334455</u>，或<u>02912345678</u>等。我们对它进行一些分析吧：首先是一个转义字符<code>\(</code>,它能出现0次或1次(?),然后是一个0，后面跟着2个数字(\d{2})，然后是)或-或空格中的一个，它出现1次或不出现(?)，最后是8个数字(\d{8})。</p>
-<p> ​</p>
-</li>
-<li><p><strong><em>分支条件</em></strong></p>
-<p>不幸的是，刚才那个表达式也能匹配010)12345678或(022-87654321这样的“不正确”的格式。要解决这个问题，我们需要用到<strong>分枝条件</strong>。正则表达式里的<strong>分枝条件</strong>指的是有几种规则，如果满足其中任意一种规则都应该当成匹配，具体方法是用|把不同的规则分隔开。听不明白？没关系，看例子：</p>
-<p>​        ==0\d{2}-\d{8}|0\d{3}-\d{7}==这个表达式能匹配两种以连字号分隔的电话号码：一种是三位区号，8位本地号(如010-12345678)，一种是4位区号，7位本地号(0376-2233445)。</p>
-<p>​        ==<code>\(0\d{2}\)[- ]?\d{8}|0\d{2}[- ]?\d{8}</code>==这个表达式匹配3位区号的电话号码，其中区号可以用小括号括起来，也可以不用，区号与本地号间可以用连字号或空格间隔，也可以没有间隔。你可以试试用分枝条件把这个表达式扩展成也支持4位区号的。        </p>
-<p>​        ==\d{5}-\d{4}|\d{5}==这个表达式用于匹配美国的邮政编码。美国邮编的规则是5位数字，或者用连字号间隔的9位数字。之所以要给出这个例子是因为它能说明一个问题：<strong>使用分枝条件时，要注意各个条件的顺序</strong>。如果你把它改成==\d{5}|\d{5}-\d{4}==的话，那么就只会匹配5位的邮编(以及9位邮编的前5位)。原因是匹配分枝条件时，将会从左到右地测试每个条件，如果满足了某个分枝的话，就不会去再管其它的条件了。</p>
-<p>​</p>
-</li>
-<li><p><strong><em>分组</em></strong></p>
-<p>我们已经提到了怎么重复单个字符（直接在字符后面加上限定符就行了）；但如果想要重复多个字符又该怎么办？你可以用小括号来指定<strong>子表达式</strong>(也叫做分组)，然后你就可以指定这个<strong>子表达式</strong>的重复次数了，你也可以对子表达式进行其它一些操作(后面会有介绍)。</p>
-<p>​        ==(\d{1,3}.){3}\d{1,3}==是一个简单的<u>IP地址匹配表达式</u>。要理解这个表达式，请按下列顺序分析它：\d{1,3}匹配1到3位的数字，<code>(\d{1,3}\.){3}</code><u>匹配三位数字加上一个英文句号(这个整体也就是这个分组)重复3次</u>，最后<u>再加上一个一到三位的数字(\d{1,3})</u>。</p>
-<p>​    不幸的是，它也将匹配256.300.888.999这种不可能存在的IP地址。如果能使用算术比较的话，或许能简单地解决这个问题，但是正则表达式中并不提供关于数学的任何功能，所以只能使用冗长的分组，选择，字符类来描述一个正确的IP地址：==((2[0-4]\d|25[0-5]|[01]?\d\d?).){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)==。</p>
-<p>​</p>
-</li>
-</ol>
-</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">WenJingliu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2019/10/25/30分钟入门正则表达式/">http://yoursite.com/2019/10/25/30分钟入门正则表达式/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">LetonLIU的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="http://pzv7d9ksy.bkt.clouddn.com/blog/20191028/9pj4xGuoxERa.jpg?imageslim" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lozad post-qr-code__img" src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lozad post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2019/10/25/Linux常用命令/"><img class="next_cover lozad" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>Linux常用命令</span></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div id="lv-container" data-id="city" data-uid="MTAyMC80NzIwNC8yMzcwNA=="><script>(function(d, s) {
+<p>​        <code>0\d\d-\d\d\d\d\d\d\d\d</code>匹配这样的字符串<u>：以0开头，然后是两个数字，然后是一个连字号“-”，最后是8个数字</u>(也就是中国的电话号码。当然，这个例子只能匹配区号为3位的情形)。这里的\d是个新的元字符，<u>匹配一位数字(0，或1，或2，或……)</u>。- 不是元字符，只匹配它本身——连字符(或者减号，或者中横线，或者随你怎么称呼它)。为了避免那么多烦人的重复，我们也可以这样写这个表达式：<code>0\d{2}-\d{8}</code>。这里\d后面的{2}({8})的意思是前面\d必须连续重复匹配2次(8次)。</p>
+<h4 id="测试正则表达式"><a href="#测试正则表达式" class="headerlink" title="测试正则表达式"></a><strong><em>测试正则表达式</em></strong></h4><p>这里推荐<a href="https://deerchao.cn/tools/regester/" target="_blank" rel="noopener">原作者</a>写的轻量测试软件，正则表达式复杂化后非常头疼，需要经常测试</p>
+<h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a><strong><em>元字符</em></strong></h4><p>现在你已经知道几个很有用的元字符了，如\b, . , * ，还有\d.正则表达式里还有更多的元字符，比如 \s 匹配<u>任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格等</u>。\w<u>匹配字母或数字或下划线或汉字等。</u></p>
+<p>下面来看看更多的例子：</p>
+<p>​        <code>\ba\w*\b</code>匹配<u>以字母a开头的单词——先是某个单词开始处(\b)，然后是字母a,然后是任意数量的字母或数字(\w*)，最后是单词结束处(\b)。</u></p>
+<p>​        <code>\d+</code><u>匹配1个或更多连续的数字。这里的+是和<em>类似的元字符，不同的是</em>匹配重复任意次(可能是0次)，而+则匹配重复1次或更多次</u>。</p>
+<p>​        <code>\b\w{6}\b</code> <u>匹配刚好6个字符的单词</u></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>匹配除换行符以外的任意字符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配字母或数字或下划线或汉字</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任意的空白符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配数字</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配单词的开始或结束</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配字符串的开始</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串的结束</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>​    元字符<code>^</code>（和数字6在同一个键位上的符号）和<script type="math/tex">`都匹配一个位置，这和\b有点类似。`^`匹配你要用来查找的字符串的开头，`</script>匹配结尾。这两个代码在验证输入的内容时非常有用，比如一个网站如果要求你填写的QQ号必须为5位到12位数字时，可以使用：<code>^\d{5,12}$</code>。</p>
+<p>​        这里的{5,12}和前面介绍过的{2}是类似的，只不过{2}匹配只能不多不少重复2次，{5,12}则是重复的次数不能少于5次，不能多于12次，否则都不匹配。</p>
+<p>​        因为使用了<code>^</code>和<code>$</code>，所以输入的整个字符串都要用来和\d{5,12}来匹配，也就是说整个输入必须是5到12个数字，因此如果输入的QQ号能匹配这个正则表达式的话，那就符合要求了。        </p>
+<p>​        和忽略大小写的选项类似，有些正则表达式处理工具还有一个处理多行的选项。如果选中了这个选项，^和$的意义就变成了匹配行的开始处和结束处。</p>
+<h4 id="字符转义"><a href="#字符转义" class="headerlink" title="字符转义"></a><strong><em>字符转义</em></strong></h4><p>​    如果你想查找元字符本身的话，比如你查找 . ,或者 <em> ,就出现了问题：你没办法指定它们，因为它们会被解释成别的意思。这时你就得使用\来取消这些字符的特殊意义。因此，你应该使用<code>\.</code>和`\</em><code>。当然，要查找\本身，你也得用</code>\`.</p>
+<p>​        例如：<code>deerchao\.cn</code>匹配<u>deerchao.cn</u>，<code>C:\\Windows</code>匹配C:<u>\Windows</u>。</p>
+<h4 id="重复"><a href="#重复" class="headerlink" title="重复"></a><strong><em>重复</em></strong></h4><p>你已经看过了前面的<code>*</code>,+,{2},{5,12}这几个匹配重复的方式了。下面是正则表达式中所有的限定符(指定数量的代码，例如<code>*</code>,{5,12}等)：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码/语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>重复零次或更多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>重复一次或更多次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>重复零次或一次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>重复n次或更多次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>重复n到m次</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>​        下面是一些使用重复的例子：</p>
+<p>​        <code>Windows\d+</code>匹配<u>Windows后面跟1个或更多数字</u></p>
+<p>​        <code>^\w+</code>匹配<u>一行的第一个单词</u>(或整个字符串的第一个单词，具体匹配哪个意思得看选项设置)</p>
+<h4 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a><strong><em>字符类</em></strong></h4><p>要想查找数字，字母或数字，空白是很简单的，因为已经有了对应这些字符集合的元字符，但是如果你想匹配没有预定义元字符的字符集合(比如元音字母a,e,i,o,u),应该怎么办？</p>
+<p>​        很简单，你只需要在方括号里列出它们就行了，像[aeiou]就匹配任何一个英文元音字母，[.?!]匹配标点符号(.或?或!)。</p>
+<p>​        我们也可以轻松地指定一个字符范围，像[0-9]代表的含意与\d就是完全一致的：一位数字；同理[a-z0-9A-Z_]也完全等同于\w（如果只考虑英文的话）。</p>
+<p>​        下面是一个更复杂的表达式：<code>\(?0\d{2}[) -]?\d{8}</code>。这个表达式可以<u>匹配几种格式的电话号码</u>，像<u>(010)88886666</u>，或<u>022-22334455</u>，或<u>02912345678</u>等。我们对它进行一些分析吧：首先是一个转义字符<code>\(</code>,它能出现0次或1次(?),然后是一个0，后面跟着2个数字(\d{2})，然后是)或-或空格中的一个，它出现1次或不出现(?)，最后是8个数字(\d{8})。</p>
+<h4 id="分支条件"><a href="#分支条件" class="headerlink" title="分支条件"></a><strong><em>分支条件</em></strong></h4><p>不幸的是，刚才那个表达式也能匹配010)12345678或(022-87654321这样的“不正确”的格式。要解决这个问题，我们需要用到<strong>分枝条件</strong>。正则表达式里的<strong>分枝条件</strong>指的是有几种规则，如果满足其中任意一种规则都应该当成匹配，具体方法是用|把不同的规则分隔开。听不明白？没关系，看例子：</p>
+<p>​        <code>0\d{2}-\d{8}|0\d{3}-\d{7}</code>这个表达式能匹配两种以连字号分隔的电话号码：一种是三位区号，8位本地号(如010-12345678)，一种是4位区号，7位本地号(0376-2233445)。</p>
+<p>​        <code>\(0\d{2}\)[- ]?\d{8}|0\d{2}[- ]?\d{8}</code>这个表达式匹配3位区号的电话号码，其中区号可以用小括号括起来，也可以不用，区号与本地号间可以用连字号或空格间隔，也可以没有间隔。你可以试试用分枝条件把这个表达式扩展成也支持4位区号的。        </p>
+<p>​        <code>\d{5}-\d{4}|\d{5}</code>这个表达式用于匹配美国的邮政编码。美国邮编的规则是5位数字，或者用连字号间隔的9位数字。之所以要给出这个例子是因为它能说明一个问题：<strong>使用分枝条件时，要注意各个条件的顺序</strong>。如果你把它改成<code>\d{5}|\d{5}-\d{4}</code>的话，那么就只会匹配5位的邮编(以及9位邮编的前5位)。原因是匹配分枝条件时，将会从左到右地测试每个条件，如果满足了某个分枝的话，就不会去再管其它的条件了。</p>
+<h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a><strong><em>分组</em></strong></h4><p>我们已经提到了怎么重复单个字符（直接在字符后面加上限定符就行了）；但如果想要重复多个字符又该怎么办？你可以用小括号来指定<strong>子表达式</strong>(也叫做分组)，然后你就可以指定这个<strong>子表达式</strong>的重复次数了，你也可以对子表达式进行其它一些操作(后面会有介绍)。</p>
+<p>​        <code>(\d{1,3}\.){3}\d{1,3}</code>是一个简单的<u>IP地址匹配表达式</u>。要理解这个表达式，请按下列顺序分析它：\d{1,3}匹配1到3位的数字，<code>(\d{1,3}\.){3}</code><u>匹配三位数字加上一个英文句号(这个整体也就是这个分组)重复3次</u>，最后<u>再加上一个一到三位的数字(\d{1,3})</u>。</p>
+<p>​    不幸的是，它也将匹配256.300.888.999这种不可能存在的IP地址。如果能使用算术比较的话，或许能简单地解决这个问题，但是正则表达式中并不提供关于数学的任何功能，所以只能使用冗长的分组，选择，字符类来描述一个正确的IP地址：<code>((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)</code>。</p>
+<h4 id="反义"><a href="#反义" class="headerlink" title="反义"></a><strong><em>反义</em></strong></h4><p>有时需要查找不属于某个能简单定义的字符类的字符。比如想查找除了数字以外，其它任意字符都行的情况，这时需要用到反义：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码/语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\W</td>
+<td>匹配任意不是字母，数字，下划线，汉字的字符</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任意不是空白符的字符</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配任意非数字的字符</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配不是单词开头或结束的位置</td>
+</tr>
+<tr>
+<td><sup><a href="#fn_x" id="reffn_x">x</a></sup></td>
+<td>匹配除了x以外的任意字符</td>
+</tr>
+<tr>
+<td><sup><a href="#fn_aeiou" id="reffn_aeiou">aeiou</a></sup></td>
+<td>匹配除了aeiou这几个字母以外的任意字符</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>​    例子：<code>\S+</code>匹配不包含空白符的字符串。      </p>
+<p>​      <code>&lt;a[^&gt;]+&gt;</code>匹配用尖括号括起来的以a开头的字符串。</p>
+<h4 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a><strong><em>反向引用</em></strong></h4><p>使用小括号指定一个子表达式后，<strong>匹配这个子表达式的文本</strong>(也就是此分组捕获的内容)可以在表达式或其它程序中作进一步的处理。默认情况下，每个分组会自动拥有一个组号，规则是：从左向右，以分组的左括号为标志，第一个出现的分组的组号为1，第二个为2，以此类推。</p>
+<p>​       <strong>后向引用</strong>用于重复搜索前面某个分组匹配的文本。例如，\1代表分组1匹配的文本。难以理解？请看示例：</p>
+<p>​        <code>\b(\w+)\b\s+\1\b</code>可以用来匹配重复的单词，像go go, 或者kitty kitty。这个表达式首先是<u>一个单词</u>，也就是<u>单词开始处和结束处之间的多于一个的字母或数字</u>(\b(\w+)\b)，这个单词会被捕获到编号为1的分组中，然后是<u>1个或几个空白符(\s+)</u>，最后是<u>分组1中捕获的内容（也就是前面匹配的那个单词）</u>(\1)。</p>
+<p>​        你也可以自己指定子表达式的<strong>组名</strong>。要指定一个子表达式的组名，请使用这样的语法：(?<word>\w+)(或者把尖括号换成’也行：(?’Word’\w+)),这样就把\w+的组名指定为Word了。要反向引用这个分组捕获的内容，你可以使用\k<word>,所以上一个例子也可以写成这样：<code>\b(?&lt;Word&gt;\w+)\b\s+\k&lt;Word&gt;\b</code>。</word></word></p>
+<p>​        使用小括号的时候，还有很多特定用途的语法。下面列出了最常用的一些：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>代码/语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>捕获</td>
+<td>(exp)</td>
+<td>匹配exp,并捕获文本到自动命名的组里</td>
+</tr>
+<tr>
+<td></td>
+<td>(?<name>exp)</name></td>
+<td>匹配exp,并捕获文本到名称为name的组里，也可以写成(?’name’exp)</td>
+</tr>
+<tr>
+<td></td>
+<td>(?:exp)</td>
+<td>匹配exp,不捕获匹配的文本，也不给此分组分配组号</td>
+</tr>
+<tr>
+<td>零宽断言</td>
+<td>(?=exp)</td>
+<td>匹配exp前面的位置</td>
+</tr>
+<tr>
+<td></td>
+<td>(?&lt;=exp)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>(?!exp)</td>
+<td>匹配后面跟的不是exp的位置</td>
+</tr>
+<tr>
+<td></td>
+<td>(?&lt;!exp)</td>
+<td>匹配前面不是exp的位置</td>
+</tr>
+<tr>
+<td>注释</td>
+<td>(?#comment)</td>
+<td>这种类型的分组不对正则表达式的处理产生任何影响，用于提供注释让人阅读</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>​       <em>ps：前三行为捕获，中间四行为零宽断言，最后一行为注释</em> </p>
+<p>我们已经讨论了前两种语法。第三个(?:exp)不会改变正则表达式的处理方式，只是这样的组匹配的内容不会像前两种那样被捕获到某个组里面，也不会拥有组号。“我为什么会想要这样做？”——好问题，你觉得为什么呢？</p>
+<h4 id="负向零宽断言"><a href="#负向零宽断言" class="headerlink" title="负向零宽断言"></a><strong><em>负向零宽断言</em></strong></h4><p>前面我们提到过怎么查找<strong>不是某个字符或不在某个字符类里</strong>的字符的方法(反义)。但是如果我们只是想要<strong>确保某个字符没有出现，但并不想去匹配它</strong>时怎么办？例如，如果我们想查找这样的单词—它里面出现了字母q,但是q后面跟的不是字母u,我们可以尝试这样：        </p>
+<p>​        <code>\b\w*q[^u]\w*\b</code>匹配包含<u>后面不是字母u的字母q</u>的单词。但是如果多做测试(或者你思维足够敏锐，直接就观察出来了)，你会发现，如果q出现在单词的结尾的话，像<strong>Iraq</strong>,<strong>Benq</strong>，这个表达式就会出错。这是因为<code>[^u]</code>总要匹配一个字符，所以如果q是单词的最后一个字符的话，后面的<code>[^u]</code>将会匹配q后面的单词分隔符(可能是空格，或者是句号或其它的什么)，后面的<code>\w*\b</code>将会匹配下一个单词，于是<code>\b\w*q[^u]\w*\b</code>就能匹配整个Iraq fighting。负向零宽断言能解决这样的问题，因为它只匹配一个位置，并不<strong>消费</strong>任何字符。现在，我们可以这样来解决这个问题：<code>\b\w*q(?!u)\w*\b</code>。</p>
+<p>​        <strong>零宽度负预测先行断言</strong>(?!exp)，<u>断言此位置的后面不能匹配表达式exp</u>。例如：<code>\d{3}(?!\d)</code><u>匹配三位数字，而且这三位数字的后面不能是数字</u>；<code>\b((?!abc)\w)+\b</code>匹配<u>不包含连续字符串abc的单词。</u></p>
+<p>​        同理，我们可以用(?&lt;!exp),<strong>零宽度负回顾后发断言</strong>来断言此位置的前面不能匹配表达式exp：<code>(?&lt;![a-z])\d{7}</code><u>匹配前面不是小写字母的七位数字</u>。</p>
+<p>​        <em>ps：请详细分析表达式(?&lt;=&lt;(\w+)&gt;).(?=&lt;\/\1&gt;)，这个表达式最能表现零宽断言的真正用途。</em>     </p>
+<p>​        一个更复杂的例子：<code>(?&lt;=&lt;(\w+)&gt;).*(?=&lt;\/\1&gt;)</code>匹配不包含属性的简单HTML标签内里的内容。(?&lt;=&lt;(\w+)&gt;)指定了这样的前缀：被尖括号括起来的单词(比如可能是<b>)，然后是.*(任意的字符串),最后是一个后缀(?=&lt;\/\1&gt;)。注意后缀里的\/，它用到了前面提过的字符转义；\1则是一个反向引用，引用的正是捕获的第一组，前面的(\w+)匹配的内容，这样如果前缀实际上是<b>的话，后缀就是</b>了。整个表达式匹配的是<b>和</b>之间的内容(再次提醒，不包括前缀和后缀本身)。</b></p>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a><strong><em>注释</em></strong></h4><p>小括号的另一种用途是通过语法(?#comment)来包含注释。例如：<code>2[0-4]\d(?#200-249)|25[0-5](?#250-255)|[01]?\d\d?(?#0-199)</code>。</p>
+<p>​        要包含注释的话，最好是启用“忽略模式里的空白符”选项，这样在编写表达式时能任意的添加空格，Tab，换行，而实际使用时这些都将被忽略。启用这个选项后，在#后面到这一行结束的所有文本都将被当成注释忽略掉。例如，我们可以前面的一个表达式写成这样：                </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(?&lt;=    # 断言要匹配的文本的前缀</span><br><span class="line">&lt;(\w+)&gt; # 查找尖括号括起来的字母或数字(即HTML/XML标签)</span><br><span class="line">)       # 前缀结束</span><br><span class="line">.*      # 匹配任意文本</span><br><span class="line">(?=     # 断言要匹配的文本的后缀</span><br><span class="line">&lt;\/\1&gt;  # 查找尖括号括起来的内容：前面是一个&quot;/&quot;，后面是先前捕获的标签</span><br><span class="line">)       # 后缀结束</span><br></pre></td></tr></table></figure>
+<h4 id="懒惰与贪婪"><a href="#懒惰与贪婪" class="headerlink" title="懒惰与贪婪"></a><strong><em>懒惰与贪婪</em></strong></h4><p>当正则表达式中包含能接受重复的限定符时，通常的行为是（在使整个表达式能得到匹配的前提下）匹配<strong>尽可能多</strong>的字符。以这个表达式为例：<code>a.*b</code>，它将会匹配最长的以a开始，以b结束的字符串。如果用它来搜索aabab的话，它会匹配整个字符串aabab。这被称为贪婪匹配。        </p>
+<p>​        有时，我们更需要懒惰匹配，也就是匹配<strong>尽可能少</strong>的字符。前面给出的限定符都可以被转化为懒惰匹配模式，只要在它后面加上一个问号?。这样.*?就意味着匹配任意数量的重复，但是在能使整个匹配成功的前提下使用最少的重复。现在看看懒惰版的例子吧：</p>
+<p>​        <code>a.*?b</code>匹配最短的，以a开始，以b结束的字符串。如果把它应用于aabab的话，它会匹配aab（第一到第三个字符）和ab（第四到第五个字符）</p>
+<p>懒惰限定符表：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码/语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*?</td>
+<td>重复任意次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>+?</td>
+<td>重复1次或更多次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>??</td>
+<td>重复0次或1次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>{n,m}?</td>
+<td>重复n到m次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>{n,}?</td>
+<td>重复n次以上，但尽可能少重复</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="处理选项"><a href="#处理选项" class="headerlink" title="处理选项"></a><strong><em>处理选项</em></strong></h4><p>上面介绍了几个选项如忽略大小写，处理多行等，这些选项能用来改变处理正则表达式的方式。下面是.Net中常用的正则表达式选项：       </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IgnoreCase(忽略大小写)</td>
+<td>匹配时不区分大小写。</td>
+</tr>
+<tr>
+<td>Multiline(多行模式)</td>
+<td>更改^和$的含义，使它们分别在任意一行的行首和行尾匹配，而不仅仅在整个字符串的开头和结尾匹配。(在此模式下,$的精确含意是:匹配\n之前的位置以及字符串结束前的位置.)</td>
+</tr>
+<tr>
+<td>Singleline(单行模式)</td>
+<td>更改.的含义，使它与每一个字符匹配（包括换行符\n）。</td>
+</tr>
+<tr>
+<td>IgnorePatternWhitespace(忽略空白)</td>
+<td>忽略表达式中的非转义空白并启用由#标记的注释。</td>
+</tr>
+<tr>
+<td>ExplicitCapture(显式捕获)</td>
+<td>仅捕获已被显式命名的组。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>一个经常被问到的问题是：是不是只能同时使用多行模式和单行模式中的一种？答案是：不是。这两个选项之间没有任何关系，除了它们的名字比较相似（以至于让人感到疑惑）以外。事实上，为了避免混淆，在最新的 JavaScript中，单行模式其实名叫 dotAll，意为点可以匹配所有字符，然而在指定该选项时，用的还是 Singleline 的首字母 s.</p>
+<h4 id="尚未讨论的语法"><a href="#尚未讨论的语法" class="headerlink" title="尚未讨论的语法"></a><strong><em>尚未讨论的语法</em></strong></h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码/语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\a</td>
+<td>报警字符(打印它的效果是电脑嘀一声)</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>通常是单词分界位置，但如果在字符类里使用代表退格</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>制表符，Tab</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>竖向制表符</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符</td>
+</tr>
+<tr>
+<td>\e</td>
+<td>Escape</td>
+</tr>
+<tr>
+<td>\0nn</td>
+<td>ASCII代码中八进制代码为nn的字符</td>
+</tr>
+<tr>
+<td>\xnn</td>
+<td>ASCII代码中十六进制代码为nn的字符</td>
+</tr>
+<tr>
+<td>\unnnn</td>
+<td>Unicode代码中十六进制代码为nnnn的字符</td>
+</tr>
+<tr>
+<td>\cN</td>
+<td>ASCII控制字符。比如\cC代表Ctrl+C</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>字符串开头(类似^，但不受处理多行选项的影响)</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>字符串结尾或行尾(不受处理多行选项的影响)</td>
+</tr>
+<tr>
+<td>\z</td>
+<td>字符串结尾(类似$，但不受处理多行选项的影响)</td>
+</tr>
+<tr>
+<td>\G</td>
+<td>当前搜索的开头</td>
+</tr>
+<tr>
+<td>\p{name}</td>
+<td>Unicode中命名为name的字符类，例如\p{IsGreek}</td>
+</tr>
+<tr>
+<td>(?&gt;exp)</td>
+<td>贪婪子表达式</td>
+</tr>
+<tr>
+<td>(?<x>-<y>exp)</y></x></td>
+<td>平衡组</td>
+</tr>
+<tr>
+<td>(?im-nsx:exp)</td>
+<td>在子表达式exp中改变处理选项</td>
+</tr>
+<tr>
+<td>(?im-nsx)</td>
+<td>为表达式后面的部分改变处理选项</td>
+</tr>
+<tr>
+<td>(?(exp)yes)</td>
+<td>同上，只是使用空表达式作为no</td>
+</tr>
+<tr>
+<td>(?(name)yes)</td>
+<td>同上，只是使用空表达式作为no</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="写在最后："><a href="#写在最后：" class="headerlink" title="写在最后："></a><strong><em>写在最后：</em></strong></h4><p>半小时你也没看完？ 嘿，我也没有，但你还是了解到了东西不是吗？</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">WenJingliu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2019/10/25/30分钟入门正则表达式/">http://yoursite.com/2019/10/25/30分钟入门正则表达式/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">LetonLIU的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="http://pzv7d9ksy.bkt.clouddn.com/blog/20191028/9pj4xGuoxERa.jpg?imageslim" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lozad post-qr-code__img" src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lozad post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2019/10/31/CPU利用率和内存利用率压力测试/"><img class="prev_cover lozad" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>CPU利用率和内存利用率压力测试</span></div></a></div><div class="next-post pull-right"><a href="/2019/10/25/Linux常用命令/"><img class="next_cover lozad" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>Linux常用命令</span></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div id="lv-container" data-id="city" data-uid="MTAyMC80NzIwNC8yMzcwNA=="><script>(function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
     if (typeof LivereTower === 'function') { return; }
     j = d.createElement(s);
